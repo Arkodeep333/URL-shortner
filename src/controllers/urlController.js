@@ -68,7 +68,7 @@ const createUrl = async function (req, res) {
 
       try {
          const urlCode = shortid.generate().toLowerCase()
-         let checkUrl = await urlModel.findOne({ longUrl })
+         let checkUrl = await urlModel.findOne({ longUrl:longUrl })
          if (checkUrl) {
             res.send({ message: "You have already created shortUrl for the requested URL as given below", data: checkUrl })
          } else {
